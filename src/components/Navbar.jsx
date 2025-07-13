@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className="text-xl font-bold">
         <Link to="/dashboard">Emplyfy</Link>
         <img
-          src="../../public/favicon.ico"
+          src="https://res.cloudinary.com/dnyrrcacd/image/upload/v1752384312/favicon_njezjv.ico"
           alt="Emplyfy Logo"
           className="w-8 h-8 ml-4 inline-block mr-2"
         />
