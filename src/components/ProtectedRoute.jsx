@@ -3,9 +3,16 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const ProtectedRoute = ({ children }) => {
-  const { user } = useAuth();
+  // const { user } = useAuth();
+  const { isAuthenticated } = useAuth();
 
-  if (!user) {
+  // non api integration
+  // if (!user) {
+  //   return <Navigate to="/login" replace />;
+  // }
+
+  // api integration
+  if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
 

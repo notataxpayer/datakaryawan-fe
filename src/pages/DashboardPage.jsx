@@ -38,7 +38,7 @@ export default function DashboardPage() {
 
   const handleSearchChange = (e) => {
     const q = e.target.value;
-    setSearchParams({ q, page: 1 }); // reset ke page 1 saat search
+    setSearchParams({ q, page: 1 }); 
   };
 
   const handlePageChange = (newPage) => {
@@ -64,8 +64,8 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">Contacts</h1>
+    <div className="max-w-xl mx-auto p-6 dark:bg-secondary not-dark:bg-white-primary not-dark:text-primary dark:text-white">
+      <h1 className="text-2xl font-bold mb-4">Contacts (Non API Integrated)</h1>
 
       <ContactForm
         onAdd={addContact}
@@ -97,13 +97,13 @@ export default function DashboardPage() {
             </div>
             <div className="flex space-x-2 gap-4">
               <button
-                className="text-blue-600 underline cursor-pointer"
+                className="text-blue-600 cursor-pointer hover:text-primary duration-300"
                 onClick={() => setSelectedContact(contact)}
               >
                 Edit
               </button>
               <button
-                className="text-red-700 underline cursor-pointer"
+                className="text-red-600 cursor-pointer hover:text-red-900 duration-300"
                 onClick={() => deleteContact(contact.id)}
               >
                 Delete

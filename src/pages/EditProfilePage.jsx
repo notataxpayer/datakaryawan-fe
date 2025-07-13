@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 
 export default function EditProfilePage() {
   const { user, updateFullName } = useAuth();
-  const [name, setName] = useState(user?.fullName || '');
+  const [name, setName] = useState(user?.name || '');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +14,7 @@ export default function EditProfilePage() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 border rounded">
+    <div className="max-w-md mx-auto mt-10 p-6 border rounded dark:bg-secondary not-dark:bg-white-secondary not-dark:text-primary h-full">
       <h2 className="text-xl font-semibold mb-4">Edit Profile</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -29,7 +29,7 @@ export default function EditProfilePage() {
         </div>
         <button
           type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded"
+          className="dark:bg-tertiary not-dark:bg-white-tertiary hover:bg-primary duration-300 hover:animate-pulse not-dark:text-primary not-dark:hover:text-white dark:text-white px-4 py-2 rounded"
         >
           Update
         </button>

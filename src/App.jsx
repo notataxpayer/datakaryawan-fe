@@ -5,6 +5,8 @@ import DashboardPage from './pages/DashboardPage';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import EditProfilePage from './pages/EditProfilePage';
+import EmployeePage from './pages/EmployeePage';
+
 
 export default function App() {
   const location = useLocation();
@@ -30,6 +32,14 @@ export default function App() {
           element={
             <ProtectedRoute>
               <EditProfilePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/employees"
+          element={
+            <ProtectedRoute>
+              <EmployeePage />
             </ProtectedRoute>
           }
         />

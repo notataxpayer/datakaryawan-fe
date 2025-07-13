@@ -35,7 +35,7 @@ export default function ContactForm({ onAdd, onUpdate, selectedContact, clearSel
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4 ">
       <div>
         <label className="block text-sm font-medium">Name</label>
         <input
@@ -70,7 +70,7 @@ export default function ContactForm({ onAdd, onUpdate, selectedContact, clearSel
       </div>
       <button
         type="submit"
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer"
+        className="dark:bg-primary not-dark:bg-white-tertiary not-dark:text-black not-dark:hover:text-white text-white px-4 py-2 rounded hover:bg-tertiary duration-300 cursor-pointer"
       >
         {selectedContact ? 'Update Contact' : 'Add Contact'}
       </button>

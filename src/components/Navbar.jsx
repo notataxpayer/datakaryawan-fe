@@ -15,9 +15,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-600 text-white px-6 py-4 flex justify-between items-center">
+    <nav className="dark:bg-primary not-dark:bg-white-tertiary dark:text-white not-dark:text-primary px-6 py-4 flex justify-between items-center">
       <div className="text-xl font-bold">
-        <Link to="/dashboard">My App</Link>
+        <Link to="/dashboard">Emplyfy</Link>
+        <img
+          src="../../public/favicon.ico"
+          alt="Emplyfy Logo"
+          className="w-8 h-8 ml-4 inline-block mr-2"
+        />
       </div>
       <div className="flex items-center space-x-4">
         <ThemeSwitcher />
@@ -27,7 +32,7 @@ const Navbar = () => {
             onClick={() => setDropdownOpen(!dropdownOpen)}
             className="flex items-center space-x-2 focus:outline-none"
           >
-            <span>{user.fullName || user.username}</span>
+            <span>{user.name || user.username}</span>
             <svg
               className="w-4 h-4"
               fill="none"
@@ -40,7 +45,7 @@ const Navbar = () => {
           </button>
 
           {dropdownOpen && (
-            <div className="absolute right-0 mt-2 w-40 bg-white text-black rounded shadow-md z-10">
+            <div className="absolute right-0 mt-2 w-48 bg-white text-primary rounded shadow-md z-10">
               <Link
                 to="/dashboard"
                 onClick={() => setDropdownOpen(false)}
@@ -54,6 +59,13 @@ const Navbar = () => {
                 className="block px-4 py-2 hover:bg-gray-100"
               >
                 Edit Profile
+              </Link>
+              <Link
+                to="/employees"
+                onClick={() => setDropdownOpen(false)}
+                className="block px-4 py-2 hover:bg-gray-100"
+              >
+                Employee Contact
               </Link>
               <Link
                 onClick={handleLogout}

@@ -1,2 +1,21 @@
 @import "tailwindcss";
 @tailwind utilities;
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #471396;
+  --color-secondary: #090040;
+  --color-tertiary: #B13BFF;
+  --color-white-primary: #FCD8CD;
+  --color-white-secondary: #FEEBF6;
+  --color-white-tertiary: #EBD6FB;
+  --color-white-quaternary: #687FE5;
+
+
+}
+
+body {
+  @apply dark:bg-secondary text-white;
+  @apply not-dark:bg-white-primary not-dark:text-primary;
+}

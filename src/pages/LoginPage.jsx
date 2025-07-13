@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext';
 const LoginPage = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
@@ -13,9 +14,12 @@ const LoginPage = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = login(form.username, form.password);
+    setLoading(true);
+    const result = await login(form.username, form.password);
+    setLoading(false);
+    
     if (result.success) {
       navigate('/dashboard');
     } else {
@@ -24,10 +28,10 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+    <div className="min-h-screen flex items-center justify-center p-4">
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-md"
+        className=" shadow-md rounded px-8 pt-6 pb-8 w-full max-w-md"
       >
         <h2 className="text-xl font-bold mb-4">Login</h2>
         {error && <p className="text-red-500 text-sm">{error}</p>}

@@ -7,7 +7,6 @@ export const ThemeProvider = ({ children }) => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
       return localStorage.getItem('theme');
     }
-    // default ke OS setting
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   };
 
@@ -26,8 +25,6 @@ export const ThemeProvider = ({ children }) => {
 
     localStorage.setItem('theme', theme);
   }, [theme]);
-
-  // Optional: Responsif terhadap perubahan OS
   useEffect(() => {
     if (theme === 'system') {
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');

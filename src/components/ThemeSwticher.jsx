@@ -9,7 +9,7 @@ export default function ThemeSwitcher() {
       <select
         value={theme}
         onChange={(e) => changeTheme(e.target.value)}
-        className="border rounded px-2 py-1 text-sm"
+        className="border rounded px-2 py-1 text-sm dark:bg-gray-800 dark:text-gray-200 not-dark:bg-white not-dark:text-gray-700"
       >
         <option value="system">System</option>
         <option value="light">Light</option>
